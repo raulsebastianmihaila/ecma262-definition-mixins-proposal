@@ -12,6 +12,8 @@ Based on the [class fields proposal](https://tc39.github.io/proposal-class-field
 
 Mixins are an essential OO feature. They allow code reuse in defining concepts in an OO style. There have been noticeable attempts to implement mixins in the JS community, but all had important downsides. See the section about [other kinds of mixins](#other-mixins) for more details. Beside fixing the issues with other kinds of mixins, definition mixins also allow sharing private state between the mixin context and the mixin functions. Since private state is an essential encapsulation tool in OOP, being able to use it with mixins is important. Since private state shouldn't be accessible for everybody, the private state needs to be explicitly introduced in trustworthy mixin providers from the context where the mixins are mixed in. Definition mixins can be used in both class contexts and function contexts.
 
+The reason the semantics described in this proposal are difficult to implement in a library is that the mix object that is passed as the second argument to the mixin function providers needs to be managed. Having this in the language allows managing that object automatically based on the [[ScriptOrModule]] slot, that library code doesn't have access to.
+
 <a name="looks"></a>
 # What they look like
 
